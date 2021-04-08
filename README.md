@@ -1,7 +1,8 @@
 # 2021 DLC
-# memeber
 
-# objective
+# Member
 
-# link
+# Objective
+
+# Link
 
