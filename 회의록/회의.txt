@@ -1,4 +1,4 @@
-#1
+#20210312 1차 오프라인 회의
 개괄적인 내용을 배워서 아직 주제를 정하기 어렵다.
 수업에서 배운 자율주행
 물체 인식/ 페이지 변형(내용이 적합한가 판단 후)
@@ -9,33 +9,34 @@
 롤토체스 > 덱 조합법으로 상대를 공략
                -입력값이 랜덤(우선적인 가중치를 부여해 순서를 정한다)
                -전적분석 사이트 등을 통해 학습
-/////////////
+////
+역할분담
 메인함수는 다같이
 내장함수는 따로 코딩
-
 ////
-질문사항
+프로젝트 질문사항
 학습을 할 때 여러번 코딩하는 과정을 거치는가
 이전에 한 사람의 프로젝트 주제?
 주제의 방향성
 2학기는 어떠한 방향
 
 
-#2
+#20210319 2차 온라인 회의
 가중치가 다른 점을 활용
 심리검사(ex mbti 등)/ 면접등에서 시뮬레이션 답변
 어떠한 단어 선택이 면접 성공에 도움을 주는지 판단
 //
 주제 관련 질문 방식
 //
-24일 수요일 오후 5시 IT2-245 교수님 면담
+24일 수요일 오후 5시 IT2-245 교수님 면담 예정
 
-#면담 1
-패키지에 관해
-visual(pose, object) / nlp  등
-mediapipe 
+#2021324 교수님 1차 면담 
+mediapipe, yolo, tensorflow 등의 패키지에 관해
+딥러닝의 분야인 visual(pose, object) / nlp(자연어처리)  등
 
-#3
+#20210329 3차 온라인 회의
+
+참고 자료
 https://lovit.github.io/nlp/2019/04/30/textrank/
 https://excelsior-cjh.tistory.com/93
 텍스트 키워드 추출
@@ -45,18 +46,25 @@ https://github.com/nilboy/pixel-recursive-super-resolution
 픽셀 복원(Pixel Recursive Super Resolution)
 https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix
 https://paperswithcode.com/area/computer-vision
+cctv
+https://github.com/ivaibhavkr/Weapon-Detection-A
+https://github.com/Ank-Cha/Social-Distancing-Analyser-COVID-19
 
-스타일러 - 코디 프로그래매
+가상 피팅 시스템
 관상찾기
-쓰레기 무단투기
+쓰레기 무단투기 예방
+: 손에 든 물체를 두고가는것,
+  사람이랑 물체가 일정 거리 이상 떨어지게 되면 투기로 판단
 무인 점포
 
-#면담 2
+#20210402 교수님 2차 면담
 쓰레기 무단투기 : 쓰레기를 특정지을 수 있는 방법 모호, 단순 쓰레기 투기에 관해서만 프로젝트를 진행한다면 너무 단순
 무인 점포 : 실제 적용할 시 이점이 크지 않음
 cctv관련 : 너무 어렵고 현재 상용화된 기술이므로 x
+과제 관련 교수님 링크
+https://www.youtube.com/watch?v=-Ff-yq7qquc
 
-*스타일러*
+*스타일러(가제)*
 자동 코디 프로그램
 +가능하다면 3d로 구현
   온도 /기온 등에 맞춰 옷을 추천
@@ -71,6 +79,50 @@ cctv관련 : 너무 어렵고 현재 상용화된 기술이므로 x
 1.
 주제 - 주제 선정이유
 이를 위해 오브젝트 디텍션이 필요하다.
-오픈소스 플랫폼을 고민
+오픈소스 플랫폼을 고민 후 yolo 채택 - 이유
 이를 통해 ~한 과정으로 진행할 예정
-1학기 / 2학기
+1학기 / 2학기 계획 수립
+
+#20210408 4차 온라인 회의
+github readme 작성
+yolo의 장점 ap(실시간 object 인식속도 빠름)
+
+참고자료
+https://curiousily.com/posts/object-detection-on-custom-dataset-with-yolo-v5-using-pytorch-and-python/
+https://youtu.be/mQXOnOdhSOk
+https://www.youtube.com/watch?v=hL-gJXgscOc
+https://www.youtube.com/watch?v=NM6lrxy0bxs
+https://better-today.tistory.com/3
+https://www.notion.so/2021-1-82e40203335241c68241a40623c70f12
+
+#20210504 5차 오프라인 회의
+중간고사 이후 계획 수립
+10주차 발표를 위한 ppt, 대본 제작
+yolo를 통해 object detection 간단한 코드 구현
+
+참고자료
+https://youtube.com/watch?v=I0RVlki14gI&feature=share
+https://youtu.be/N7XyqfhY2lU
+https://youtube.com/watch?v=vHs51esvpg0&feature=share
+https://bong-sik.tistory.com/16
+
+#20210505 6차 온라인 회의
+10주차 발표 개선, 수정, 예상 질문 정리
+- 주차 별 계획, 물체인식 이론 등을 추가
+- ppt 다듬기
+
+참고자료
+https://youtu.be/y03Nbv71CoU
+
+#20210507 10주차 발표
+아이디어나 내용에 관한 내용 줄이기
+실제로 활동한 내용 발표
+깃허브를 여러 사람이서 작성
+
+#20210509 7차 온라인 회의
+깃허브에 yolo 테스트 코드, 패키지 업로드
+회의록 수정
+11차 발표를 위한 ppt, 대본 제작
+
+참고자료
+https://twoicefish-secu.tistory.com/121
