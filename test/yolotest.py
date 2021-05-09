@@ -8,7 +8,7 @@ layer_names = net.getLayerNames()
 output_layers = [layer_names[i[0] - 1] for i in net.getUnconnectedOutLayers()] 
 colors = np.random.uniform(0, 255, size=(len(classes), 3))
 # Loading image
-img = cv2.imread("room.png") 
+img = cv2.imread("test.jpg") 
 #이미지 크기 조절
 img = cv2.resize(img, None, fx=1.2, fy=1.2) 
 height, width, channels = img.shape
