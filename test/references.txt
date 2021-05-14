@@ -1,1 +1,4 @@
 https://nuguziii.github.io/survey/S-001/
+
+SSD 
+https://github.com/sgrvinod/a-PyTorch-Tutorial-to-Object-Detection
