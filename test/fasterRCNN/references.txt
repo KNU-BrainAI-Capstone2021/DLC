@@ -1,0 +1,4 @@
+https://arxiv.org/abs/1506.01497
+https://www.anaconda.com/products/individual
+https://pytorch.org/
+https://debuggercafe.com/faster-rcnn-object-detection-with-pytorch/
