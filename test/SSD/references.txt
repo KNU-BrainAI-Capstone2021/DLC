@@ -1,0 +1,27 @@
+https://arxiv.org/abs/1512.02325
+https://github.com/sgrvinod/a-PyTorch-Tutorial-to-Object-Detection
+https://debuggercafe.com/object-detection-using-pytorch-and-ssd300-with-vgg16-backbone/
+
+│   create_data_lists.py
+│   datasets.py
+│   detect.py
+│   detect_image.py
+│   detect_vid.py
+│   eval.py
+│   LICENSE
+│   model.py
+│   README.md
+│   train.py
+│   utils.py
+│
+├───checkpoints
+│       checkpoint_ssd300.pth.tar
+│
+├───img
+│
+├───input
+│
+├───outputs
+
+checkpoint_ssd300.pth.tar
+https://drive.google.com/file/d/1bvJfF6r_zYl2xZEpYXxgb7jLQHFZ01Qe/view
