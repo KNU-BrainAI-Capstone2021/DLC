@@ -1,4 +1,5 @@
 https://nuguziii.github.io/survey/S-001/
 https://github.com/switchablenorms/DeepFashion2
 
-yolov3 https://github.com/eriklindernoren/PyTorch-YOLOv3
+yolov3
+https://github.com/ultralytics/yolov3
