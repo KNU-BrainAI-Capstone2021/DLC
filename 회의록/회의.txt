@@ -145,3 +145,14 @@ faster rcnn, yolo, ssd 선정 후 비교
 ~한 이유로 ? 선정 
 dataset에 관한 내용 추가 여부
 -> 옷에 landmark를 구현하는 것 관련해서 교수님께 질문 후 결정
+
+참고자료
+https://ultrakid.tistory.com/22
+https://kuklife.tistory.com/123
+https://youtu.be/XNRzZkZ-Byg
+https://github.com/sejongresearch/FlowerClassification/issues/18
+https://jetsonaicar.tistory.com/12
+https://liuziwei7.github.io/projects/FashionLandmarks.html
+https://github.com/svip-lab/HRNet-for-Fashion-Landmark-Estimation.PyTorch
+https://junjiwon1031.github.io/2017/09/08/Single-Shot-Multibox-Detector.html
+https://blog.lunit.io/2017/06/01/r-cnns-tutorial/
