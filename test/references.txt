@@ -3,3 +3,4 @@ https://nuguziii.github.io/survey/S-001/
 SSD 
 https://github.com/sgrvinod/a-PyTorch-Tutorial-to-Object-Detection
 https://debuggercafe.com/object-detection-using-pytorch-and-ssd300-with-vgg16-backbone/
+https://arxiv.org/abs/1512.02325
