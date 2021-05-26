@@ -2,6 +2,9 @@ from torchvision import transforms
 from utils import *
 from PIL import Image, ImageDraw, ImageFont
 
+import torch
+import torch.nn as nn 
+
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # Load model checkpoint
