@@ -156,3 +156,76 @@ https://liuziwei7.github.io/projects/FashionLandmarks.html
 https://github.com/svip-lab/HRNet-for-Fashion-Landmark-Estimation.PyTorch
 https://junjiwon1031.github.io/2017/09/08/Single-Shot-Multibox-Detector.html
 https://blog.lunit.io/2017/06/01/r-cnns-tutorial/
+
+#20210519 9차 온라인 회의
+0515에 상의한 내용을 바탕으로 ppt 제작
+기본적으로 object detection에 대해 설명 -backbone, neck, head
+detector인 faster rcnn, ssd, yolo를 1-stage, 2-stage를 나누어 기본 개념 설명
+각 모델에 대해 동일한 사진으로 detection 결과와 시간을 기록
+논문에 기재된 그래프를 바탕으로 실제 실행 시간과 비교하여 메인 모델 선정
+yolov3를 선정하였고, 그 이유를 설명
+이후 deepfashion2를 yolov3에 학습시켜 옷 데이터를 탐지하려고 함
+
+참고자료
+https://arxiv.org/abs/1612.03144
+https://velog.io/@hewas1230/ObjectDetection-Architecture
+https://nuggy875.tistory.com/20
+https://kimcando94.tistory.com/115
+https://wordbe.tistory.com/entry/MMDetection-%EB%85%BC%EB%AC%B8-%EC%A0%95%EB%A6%AC-%EB%B0%8F-%EB%AA%A8%EB%8D%B8-%EA%B5%AC%ED%98%84
+https://ropiens.tistory.com/33
+https://velog.io/@hewas1230/ObjectDetection-Architecture
+https://yeomko.tistory.com/17
+https://leechamin.tistory.com/221
+http://incredible.ai/deep-learning/2018/03/17/Faster-R-CNN/
+https://debuggercafe.com/faster-rcnn-object-detection-with-pytorch/
+https://towardsdatascience.com/faster-rcnn-object-detection-f865e5ed7fc4
+https://blog.lunit.io/2017/06/01/r-cnns-tutorial/
+https://ganghee-lee.tistory.com/37
+https://herbwood.tistory.com/15
+https://taeu.github.io/paper/deeplearning-paper-ssd/
+https://junjiwon1031.github.io/2017/09/08/Single-Shot-Multibox-Detector.html
+https://cv-tricks.com/object-detection/faster-r-cnn-yolo-ssd/
+https://paperswithcode.com/dataset/deepfashion2
+
+#20210520 10차 온라인 회의
+21일 발표를 위한 마무리, 다듬기
+
+#20210521 12주차 발표
+깃허브 커밋 더 자주
+git을 통해 업로드 할때, master를 main으로 변경하는 법
+다음 발표에는 deepfashion2에 대한 실습 결과 추가
+
+#20210524 11차 온라인 회의
+deepfashion2의 weight파일을 yolov3를 통해 실험
+미리 학습된 데이터를 yolo를 통해 탐지하는 것
+10/15 성공, 5/15 실패
+현재 weight파일은 15000개의 실습을 통해 모델을 탐지하였으므로,
+학습이 부족한 것은 아닐까라고 판단하여 이후 과정에서 
+putty server를 이용하여 직접 학습시켜보자는 방향으로 프로젝트 진행
+실습 내용을 바탕으로 13주차 발표자료 제작
+
+참고자료
+https://github.com/simaiden/Clothing-Detection
+https://drive.google.com/drive/folders/1b7laIv9-oeh59XSV6aOO50eMKbTGsPoP
+
+#20210527 13주차 발표
+yolo는 detecting에 한계점을 가진다.
+따라서 이 한계점을 넘어가는 외투나 코트 등등의 의상을 인식하기 못했을 가능성이 크다.
+background와 detecting 대상의 색이 같을 경우 landmark를 정확하게 판단하기 어려울 수 있다.
+최종적으로 dlc가 가고자 하는 목표에는 3d데이터나 음영을 가진 옷 데이터를 사용해야 되므로 
+yolo이외의 다른 모델을 사용하는것을 추천한다.
+yolo로 프로젝트 detector를 결정할때 사용한 weight파일과 deepfashion의 weight파일이 다르므로 학습할 때 어떠한
+데이터를 사용했는지 분별하기 힘들다.
+
+이러한 문제점들을 해결하기 위해 제시된 방안 
+1. 더 많은 데이터를 학습
+2. test데이터의 사진 사이즈를 통일시킨다.
+3. opencv의 반전 기능을 이용하여 gray등으로 색을 변경시킨다.
+ -> 변경하였을 때, 결과물이 원본에 detecting 결과를 추가한 것인지, 변경된 색에 결과를 더한 것인지에 대해
+    정확한 판단이 필요하다. 변경된 색으로 결과가 나타난다면 의미있는 detecting x
+4. 테스트 빈도를 늘려 정확도를 높인다(목표는 90%이상)
+5. 모델을 변경한다(yolo는 영상에서 detecting하는데 더 적합=동적인 모델에서 detecting에 유리)
+
++코드보나 결과나 그래프, 플로우 차트, 모델링 등에 대해 중점적으로 다루기
+ 깃허브 커밋을 확인하기 위해 아이디가 보이게 readme 수정
+ 코드에 주석 등을 달기
