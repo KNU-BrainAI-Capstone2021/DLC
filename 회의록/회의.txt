@@ -202,7 +202,10 @@ deepfashion2의 weight파일을 yolov3를 통해 실험
 현재 weight파일은 15000개의 실습을 통해 모델을 탐지하였으므로,
 학습이 부족한 것은 아닐까라고 판단하여 이후 과정에서 
 putty server를 이용하여 직접 학습시켜보자는 방향으로 프로젝트 진행
+사용을 위해 putty 설치 이후 가상환경 dlc 제작, 현재 깃허브에 올라온 코드 server 
 실습 내용을 바탕으로 13주차 발표자료 제작
+
+
 
 참고자료
 https://github.com/simaiden/Clothing-Detection
