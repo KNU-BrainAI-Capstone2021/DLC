@@ -3,10 +3,10 @@
 ## Member
 |name |   |
 |-----|---|
-|김현민| @Hyunmin-K |
-|이광열| @choco1692 |
-|손건웅| @acushla39 |
-|제갈건| @geon-j    |
+|김현민| Hyunmin-K |
+|이광열| choco1692 |
+|손건웅| acushla39 |
+|제갈건| geon-j    |
 
 
 ## Objection
