@@ -1,3 +1,5 @@
 https://github.com/switchablenorms/DeepFashion2
 https://has3ong.tistory.com/492
 https://jayharvey.tistory.com/11
+
+weight ulr : https://drive.google.com/drive/folders/1b7laIv9-oeh59XSV6aOO50eMKbTGsPoP
