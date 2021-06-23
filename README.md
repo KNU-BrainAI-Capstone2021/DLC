@@ -18,10 +18,12 @@
 
  
 ## Concept
- Object detection을 활용하여, 의상을 인식하고 이를 추출하는 것   
-  ![image](https://user-images.githubusercontent.com/79971598/123057438-d5831600-d442-11eb-9188-2ea25ed5a737.png)   
- CNN을 기반으로 한 detection   
- 
+ CNN을 기반으로 한 Object detection을 활용하여, 의상을 인식하고 이를 추출하는 것   
+  ![image](https://user-images.githubusercontent.com/79971598/123065142-de2b1a80-d449-11eb-83ef-11b1cbd5c8e2.png)   
+  
+  ![image](https://user-images.githubusercontent.com/79971598/123061438-9c4ca500-d446-11eb-91f8-7df6cc8cff38.png)   
+   
+  
 ### Model
  Yolo V3   
   ![image](https://user-images.githubusercontent.com/79971598/123057002-6f968e80-d442-11eb-864e-fac530933433.png)   
@@ -29,6 +31,14 @@
  1-stage detector   
   ![image](https://user-images.githubusercontent.com/79971598/123057634-019e9700-d443-11eb-944b-65752efd4ec5.png)   
    
+   
+### Backbone
+ darknet-53   
+  ![image](https://user-images.githubusercontent.com/79971598/123063090-129dd700-d448-11eb-9c91-de436d56c40d.png)     
+ 
+ downsample으로 block이 구분   
+
+
 ### Data preprocessing
  LetterBoxing   
 ![image](https://user-images.githubusercontent.com/79971598/123058688-09127000-d444-11eb-8c3e-a595c0a4e7be.png)
@@ -37,8 +47,11 @@
   320 × 320 : 작고 정확도는 떨어지지 만 속도 빠름   
   609 × 609 : 정확도는 더 높지만 속도 느림   
   416 × 416 : 중간   
+     
+     
 ### Parameter
  ![image](https://user-images.githubusercontent.com/79971598/123058433-c94b8880-d443-11eb-8a39-dff9615d633d.png)   
+ ![image](https://user-images.githubusercontent.com/79971598/123064247-11b97500-d449-11eb-982f-7458da992cc2.png)   
 
 
 ### 2학기 프로젝트
