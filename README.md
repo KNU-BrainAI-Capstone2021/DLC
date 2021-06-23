@@ -55,6 +55,8 @@
    
 ### Dataset
   Deepfashion2   
+  https://github.com/switchablenorms/DeepFashion2   
+  
  ![image](https://user-images.githubusercontent.com/79971598/123065458-1f232f00-d44a-11eb-8c24-ce16635db009.png)
    
    
