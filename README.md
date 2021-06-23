@@ -8,23 +8,45 @@
 |손건웅| acushla39 |
 |제갈건| geon-j    |
 
-
-## Objection
+# Objection
  딥러닝을 활용한 가상 피팅 시스템
 
+## 1학기 프로젝트
+ 물체 인식 기술을 이해하고 특정 데이터셋을 활용해 물체 인식  
+ ![KakaoTalk_20210408_193219579](https://user-images.githubusercontent.com/79971598/114018699-7e8c8c80-98a8-11eb-9535-584f076117ce.png)
 
 
-### 1학기 프로젝트
-물체 인식 기술을 이해하고 특정 데이터셋을 활용해 물체 인식  
-![KakaoTalk_20210408_193219579](https://user-images.githubusercontent.com/79971598/114018699-7e8c8c80-98a8-11eb-9535-584f076117ce.png)
+ 
+## Concept
+ Object detection을 활용하여, 의상을 인식하고 이를 추출하는 것   
+  ![image](https://user-images.githubusercontent.com/79971598/123057438-d5831600-d442-11eb-9188-2ea25ed5a737.png)   
+ CNN을 기반으로 한 detection   
+ 
+### Model
+ Yolo V3   
+  ![image](https://user-images.githubusercontent.com/79971598/123057002-6f968e80-d442-11eb-864e-fac530933433.png)   
+ 
+ 1-stage detector   
+  ![image](https://user-images.githubusercontent.com/79971598/123057634-019e9700-d443-11eb-944b-65752efd4ec5.png)   
+   
+### Data preprocessing
+ LetterBoxing   
+![image](https://user-images.githubusercontent.com/79971598/123058688-09127000-d444-11eb-8c3e-a595c0a4e7be.png)
+
+ resize   
+  320 × 320 : 작고 정확도는 떨어지지 만 속도 빠름   
+  609 × 609 : 정확도는 더 높지만 속도 느림   
+  416 × 416 : 중간   
+### Parameter
+ ![image](https://user-images.githubusercontent.com/79971598/123058433-c94b8880-d443-11eb-8a39-dff9615d633d.png)   
 
 
 ### 2학기 프로젝트
-사람 체형을 인식하여 의상의 사이즈를 조절 후 실제로 입은 것처럼 표현  
-![KakaoTalk_20210408_202015656](https://user-images.githubusercontent.com/79971598/114018205-f312fb80-98a7-11eb-9de4-509e83e77556.png)
+ 사람 체형을 인식하여 의상의 사이즈를 조절 후 실제로 입은 것처럼 표현  
+ ![KakaoTalk_20210408_202015656](https://user-images.githubusercontent.com/79971598/114018205-f312fb80-98a7-11eb-9de4-509e83e77556.png)
 
 ## 참조 Link
-https://curiousily.com/posts/object-detection-on-custom-dataset-with-yolo-v5-using-pytorch-and-python/  
-https://youtu.be/mQXOnOdhSOk  
-https://www.youtube.com/watch?v=hL-gJXgscOc  
-https://syncedreview.com/2020/04/07/deep-fashion3d-dataset-benchmark-for-virtual-clothing-try-on-and-more/  
+ https://curiousily.com/posts/object-detection-on-custom-dataset-with-yolo-v5-using-pytorch-and-python/  
+ https://youtu.be/mQXOnOdhSOk  
+ https://www.youtube.com/watch?v=hL-gJXgscOc  
+ https://syncedreview.com/2020/04/07/deep-fashion3d-dataset-benchmark-for-virtual-clothing-try-on-and-more/  
