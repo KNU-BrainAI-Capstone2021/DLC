@@ -52,8 +52,12 @@
 ### Parameter
  ![image](https://user-images.githubusercontent.com/79971598/123058433-c94b8880-d443-11eb-8a39-dff9615d633d.png)   
  ![image](https://user-images.githubusercontent.com/79971598/123064247-11b97500-d449-11eb-982f-7458da992cc2.png)   
-
-
+   
+### Dataset
+  Deepfashion2   
+ ![image](https://user-images.githubusercontent.com/79971598/123065458-1f232f00-d44a-11eb-8c24-ce16635db009.png)
+   
+   
 ### 2학기 프로젝트
  사람 체형을 인식하여 의상의 사이즈를 조절 후 실제로 입은 것처럼 표현  
  ![KakaoTalk_20210408_202015656](https://user-images.githubusercontent.com/79971598/114018205-f312fb80-98a7-11eb-9de4-509e83e77556.png)
