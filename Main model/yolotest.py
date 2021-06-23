@@ -8,8 +8,7 @@ layer_names = net.getLayerNames()
 output_layers = [layer_names[i[0] - 1] for i in net.getUnconnectedOutLayers()] 
 colors = np.random.uniform(0, 255, size=(len(classes), 3))
 # Loading image
-for k in range (1,2) :
-    img_dst=f"test({k})_result.png"
+for k in range (1,50) :
     #input 이미지 불러오기
     img = cv2.imread(f"test({k}).png")
     #이미지 크기 조절
@@ -41,6 +40,15 @@ for k in range (1,2) :
                 confidences.append(float(confidence)) 
                 class_ids.append(class_id)
 
+    #bounding box 추출
+    for i in range(len(boxes)): 
+      if i in indexes: x, y, w, h = boxes[i] 
+      if len(boxes)>=1 : 
+       rect_img = img[y+1:y+h-1,x+1:x+w-1]
+       j=1
+       cv2.imwrite(f'result/{j}detectioncrop.jpg', rect_img)
+       j += 1
+        
     #중복박스제거코드            
     indexes = cv2.dnn.NMSBoxes(boxes, confidences, 0.5, 0.4)
     font = cv2.FONT_HERSHEY_PLAIN 
@@ -50,7 +58,24 @@ for k in range (1,2) :
         color = colors[i] 
         cv2.rectangle(img, (x, y), (x + w, y + h), color, 2) 
         cv2.putText(img, label, (x, y + 30), font, 3, color, 3) 
-        cv2.imwrite(img_dst,img)
-        cv2.imshow("Image", img)
-        cv2.waitKey(0) 
-        cv2.destroyAllWindows()
+    #결과값 폴더 생성
+    def createFolder(directory):
+      try:
+        if not os.path.exists(directory):
+            os.makedirs(directory)
+      except OSError:
+            print ('Error: Creating directory. ' +  directory)
+    
+    createFolder('test result')
+    createFolder('test result/fail')
+    createFolder('test result/fail')
+    
+    #결과값을 성공/실패로 나누어 저장
+    if len(boxes) == 0 :
+     cv2.imwrite(f'result/fail/{k} fail.png', img)
+    else :
+     cv2.imwrite(f'result/success/{k} success.png', img)
+        
+    cv2.imshow("Image", img)
+    cv2.waitKey(0) 
+    cv2.destroyAllWindows()
