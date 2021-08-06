@@ -68,7 +68,7 @@ for k in range (1,50) :
     
     createFolder('test result')
     createFolder('test result/fail')
-    createFolder('test result/fail')
+    createFolder('test result/success')
     
     #결과값을 성공/실패로 나누어 저장
     if len(boxes) == 0 :
