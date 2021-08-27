@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+import os
 # Load Yolo
 net = cv2.dnn.readNet("yolov3-df2_15000.weights", "yolov3-df2.cfg")
 classes = [] 
@@ -40,15 +41,6 @@ for k in range (1,50) :
                 confidences.append(float(confidence)) 
                 class_ids.append(class_id)
 
-    #bounding box 추출
-    for i in range(len(boxes)): 
-      if i in indexes: x, y, w, h = boxes[i] 
-      if len(boxes)>=1 : 
-       rect_img = img[y+1:y+h-1,x+1:x+w-1]
-       j=1
-       cv2.imwrite(f'result/{j}detectioncrop.jpg', rect_img)
-       j += 1
-        
     #중복박스제거코드            
     indexes = cv2.dnn.NMSBoxes(boxes, confidences, 0.5, 0.4)
     font = cv2.FONT_HERSHEY_PLAIN 
@@ -58,6 +50,16 @@ for k in range (1,50) :
         color = colors[i] 
         cv2.rectangle(img, (x, y), (x + w, y + h), color, 2) 
         cv2.putText(img, label, (x, y + 30), font, 3, color, 3) 
+        
+    #bounding box 추출
+    for i in range(len(boxes)): 
+      if i in indexes: x, y, w, h = boxes[i] 
+      if len(boxes)>=1 : 
+       rect_img = img[y+1:y+h-1,x+1:x+w-1]
+       j=1
+       cv2.imwrite(f'result/{j}detectioncrop.jpg', rect_img)
+       j += 1
+        
     #결과값 폴더 생성
     def createFolder(directory):
       try:
