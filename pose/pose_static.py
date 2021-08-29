@@ -60,9 +60,11 @@ with mp_pose.Pose(static_image_mode=True,model_complexity=2,enable_segmentation=
 
         
 '''
+#모든 랜드마크 이름 출력
 for lndmrk in mp_pose.PoseLandmark:
     print(lndmrk)
     
+#랜드마크 좌표 출력    
 landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value]    
 print(landmarks)    
     
