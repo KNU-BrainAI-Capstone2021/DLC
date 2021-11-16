@@ -5,7 +5,6 @@
 |-----|---|
 |김현민| Hyunmin-K |
 |이광열| choco1692 |
-|손건웅| acushla39 |
 |제갈건| geon-j    |
 
 # Objection
@@ -64,8 +63,23 @@
  사람 체형을 인식하여 의상의 사이즈를 조절 후 실제로 입은 것처럼 표현  
  ![KakaoTalk_20210408_202015656](https://user-images.githubusercontent.com/79971598/114018205-f312fb80-98a7-11eb-9de4-509e83e77556.png)
 
+### Main model flow
+ <img width="602" alt="model flow" src="https://user-images.githubusercontent.com/79971598/141931969-23f8cd7b-06ad-4b51-9edf-dbe7075b39e5.png">
+
+### Mediapipe pose
+ 피사체의 landmark를 표시하여 landmark간의 각도를 활용, 아바타 생성   
+ ![image](https://user-images.githubusercontent.com/79971598/141932088-72588ff6-a665-4d72-afd4-861375e6d07c.png)
+
+### Grabcut algorithm
+ 최소한의 사용사 상호작용을 통한 전경 추출   
+ ![image](https://user-images.githubusercontent.com/79971598/141932307-9abb0c81-6350-41cf-be91-f663a89699b5.png)
+
+
 ## 참조 Link
  https://curiousily.com/posts/object-detection-on-custom-dataset-with-yolo-v5-using-pytorch-and-python/  
  https://youtu.be/mQXOnOdhSOk  
  https://www.youtube.com/watch?v=hL-gJXgscOc  
  https://syncedreview.com/2020/04/07/deep-fashion3d-dataset-benchmark-for-virtual-clothing-try-on-and-more/  
+ https://blog.naver.com/samsjang/220606250662
+ https://google.github.io/mediapipe/solutions/pose.html
+ https://docs.opencv.org/3.4/d8/d83/tutorial_py_grabcut.html
