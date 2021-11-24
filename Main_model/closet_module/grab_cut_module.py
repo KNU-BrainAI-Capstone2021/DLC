@@ -19,6 +19,7 @@ thickness =3
 def onMouse(event,x,y,flags,param):
     global ix, iy, contour_img, contour_img2, drawing, value, mask, rectangle
     global rect, rect_or_mask, rect_over
+    global box_x,box_y,box_w,box_h
 
     if event == cv2.EVENT_RBUTTONDOWN:
         rectangle = True
@@ -33,9 +34,9 @@ def onMouse(event,x,y,flags,param):
     elif event == cv2.EVENT_RBUTTONUP:
         rectangle = False
         rect_over = True
-        cv2.rectangle(contour_img,(top_x, top_y), (top_w, top_h),RED,2)
+        cv2.rectangle(contour_img,(box_x, box_y), (box_w, box_h),RED,2)
         
-        rect = (min(top_x,top_w),min(top_y,top_h),abs(top_x-top_w),abs(top_y-top_h))
+        rect = (min(box_x,box_w),min(box_y,box_h),abs(box_x-box_w),abs(box_y-box_h))
         rect_or_mask=0
         print('n:적용하기')
 
@@ -44,7 +45,7 @@ def onMouse(event,x,y,flags,param):
             print('마우스 왼쪽 버튼을 누른채로 전경이 되는 부분을 선택하세요')
         else:
             drawing = True
-            cv2.circle(img,(x,y),thickness,value['color'],-1)
+            cv2.circle(contour_img,(x,y),thickness,value['color'],-1)
             cv2.circle(mask,(x,y),thickness,value['val'],-1)
 
     elif event == cv2.EVENT_MOUSEMOVE:
@@ -59,12 +60,18 @@ def onMouse(event,x,y,flags,param):
             cv2.circle(mask,(x,y),thickness,value['val'],-1)
     return
 
-def grabcut(path):
+def grabcut(det_img,p_x,p_y,p_w,p_h):
     global ix, iy, contour_img, contour_img2, drawing, value, mask, rectangle
     global rect, rect_or_mask, rect_over
+    global box_x,box_y,box_w,box_h
 
-    contour_img = cv2.imread(path)
-    contour_img = cv2.resize(contour_img, None, fx=1.5, fy=1.5)
+    box_x=p_x
+    box_y=p_y
+    box_w=p_w
+    box_h=p_h
+    
+    contour_img = det_img
+    contour_img = cv2.resize(contour_img, None, fx=1.0, fy=1.0)
     contour_img2 = contour_img.copy()
 
     mask = np.zeros(contour_img.shape[:2], dtype=np.uint8)
@@ -140,7 +147,9 @@ def grabcut(path):
             result = output.copy()
             result = cv2.cvtColor(result, cv2.COLOR_BGR2BGRA)
             result[:, :, 3] = mask
-            cv2.imwrite('top_contour.png',result)
+            
+            cut_img=result
+            
             print('0:제거배경선택 1: 복원전경선택 n:적용하기 r:리셋 s:저장 q:종료')
             
         elif k == ord('q'):
@@ -150,3 +159,4 @@ def grabcut(path):
         mask2= np.where((mask==1)+(mask==3),255,0).astype('uint8')
         output = cv2.bitwise_and(contour_img2, contour_img2, mask=mask2)
     cv2.destroyAllWindows()
+    return cut_img

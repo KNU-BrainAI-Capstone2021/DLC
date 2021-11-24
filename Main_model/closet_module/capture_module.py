@@ -3,6 +3,7 @@ import os
 
 def cap():
     i=1
+    save_path='C:\\Users\\lky\\DeepLearning\\smart_closet\\img_lib\Avatar\\'
     #이미지캠쳐 과정
     print("q=캡쳐 후 종료,w=종료")
     cap = cv2.VideoCapture(0)
@@ -12,11 +13,11 @@ def cap():
         #q누르면 캡쳐 후 종료    
         if cv2.waitKey(10) & 0xFF == ord('q'):
             while(True):
-                file = 'C:\\Users\\lky\\DeepLearning\\smart_closet\\img_lib\Avatar\\' + f'Avatar{i}.png'
+                file = save_path + f'Avatar{i}.png'
                 if os.path.isfile(file):
                     i+=1
                     continue
-                cv2.imwrite('C:\\Users\\lky\\DeepLearning\\smart_closet\\img_lib\Avatar\\' + f'Avatar{i}.png',frame)
+                cv2.imwrite(save_path + f'Avatar{i}.png',frame)
                 break
             break
         #w누르면 바로 종료

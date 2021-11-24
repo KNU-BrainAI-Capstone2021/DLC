@@ -1,8 +1,8 @@
 import cv2
 #합성과정
 def synthesis(hpos,vpos,path1,path2):
-    src1=cv2.imread(path1)
-    src1 = cv2.resize(src1, None, fx=1.5, fy=1.5)
+    src1=path1
+    src1 = cv2.resize(src1, None, fx=1.0, fy=1.0)
     src2=cv2.imread(path2)
     
     #합성영역지정하기
@@ -24,6 +24,4 @@ def synthesis(hpos,vpos,path1,path2):
     dst = cv2.add(img1_bg,img2_fg)
     src1[vpos:rows+vpos, hpos:cols+hpos]= dst
     
-    cv2.imshow('syntesis_test.png',src1)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+    return src1
