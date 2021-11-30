@@ -126,7 +126,9 @@ def grabcut(det_img,p_x,p_y,p_w,p_h):
 
         elif k == ord('s'):
             gray = cv2.cvtColor(output, cv2.COLOR_BGR2GRAY)
-
+            mask2= np.where((mask==1)+(mask==3),255,0).astype('uint8')
+            output = cv2.bitwise_and(contour_img2, contour_img2, mask=mask2)
+            
             # 임계값 조절
             mask = cv2.threshold(gray, 10, 255, cv2.THRESH_BINARY)[1]
             
@@ -156,7 +158,6 @@ def grabcut(det_img,p_x,p_y,p_w,p_h):
             #종료
             break
 
-        mask2= np.where((mask==1)+(mask==3),255,0).astype('uint8')
-        output = cv2.bitwise_and(contour_img2, contour_img2, mask=mask2)
+        
     cv2.destroyAllWindows()
     return cut_img

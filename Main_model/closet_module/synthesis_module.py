@@ -3,7 +3,7 @@ import cv2
 def synthesis(hpos,vpos,path1,path2):
     src1=path1
     src1 = cv2.resize(src1, None, fx=1.0, fy=1.0)
-    src2=cv2.imread(path2)
+    src2=cv2.imread(path2,cv2.IMREAD_UNCHANGED)
     
     #합성영역지정하기
     rows,cols,channels = src2.shape
