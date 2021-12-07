@@ -1,9 +1,9 @@
 import cv2
 #합성과정
-def synthesis(hpos,vpos,path1,path2):
-    src1=path1
+def synthesis(hpos,vpos,img1,img2):
+    src1=img1
     src1 = cv2.resize(src1, None, fx=1.0, fy=1.0)
-    src2=cv2.imread(path2,cv2.IMREAD_UNCHANGED)
+    src2=img2
     
     #합성영역지정하기
     rows,cols,channels = src2.shape
@@ -15,10 +15,10 @@ def synthesis(hpos,vpos,path1,path2):
     mask_inv = cv2.bitwise_not(mask)
     
     #로고를 검정색으로 만들기
-    img1_bg = cv2.bitwise_and(roi,roi, mask=mask_inv)
+    img1_bg = cv2.bitwise_and(roi,roi,mask=mask_inv)
     
     #로고이미지에서 로고부분만 추출하기
-    img2_fg = cv2.bitwise_and(src2,src2, mask=mask)
+    img2_fg = cv2.bitwise_and(src2,src2,mask=mask)
     
     #합성하기
     dst = cv2.add(img1_bg,img2_fg)

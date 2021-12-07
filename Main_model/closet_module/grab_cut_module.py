@@ -77,10 +77,9 @@ def grabcut(det_img,p_x,p_y,p_w,p_h):
     mask = np.zeros(contour_img.shape[:2], dtype=np.uint8)
     output = np.zeros(contour_img.shape,np.uint8)
 
-    cv2.namedWindow('input')
-    cv2.namedWindow('output')
+    cv2.namedWindow('output', cv2.WINDOW_NORMAL)
+    cv2.namedWindow('input', cv2.WINDOW_NORMAL)
     cv2.setMouseCallback('input',onMouse, param=(contour_img,contour_img2))
-    cv2.moveWindow('input', contour_img.shape[1]+10,90)
 
 
     print('오른쪽 마우스 버튼을 누르고 영역을 지정한 후 n을 누르세요')
@@ -126,8 +125,7 @@ def grabcut(det_img,p_x,p_y,p_w,p_h):
 
         elif k == ord('s'):
             gray = cv2.cvtColor(output, cv2.COLOR_BGR2GRAY)
-            mask2= np.where((mask==1)+(mask==3),255,0).astype('uint8')
-            output = cv2.bitwise_and(contour_img2, contour_img2, mask=mask2)
+            
             
             # 임계값 조절
             mask = cv2.threshold(gray, 10, 255, cv2.THRESH_BINARY)[1]
@@ -150,14 +148,17 @@ def grabcut(det_img,p_x,p_y,p_w,p_h):
             result = cv2.cvtColor(result, cv2.COLOR_BGR2BGRA)
             result[:, :, 3] = mask
             
-            cut_img=result
+            grab_cut_img=result
             
             print('0:제거배경선택 1: 복원전경선택 n:적용하기 r:리셋 s:저장 q:종료')
             
         elif k == ord('q'):
             #종료
             break
+            
+        mask2= np.where((mask==1)+(mask==3),255,0).astype('uint8')
+        output = cv2.bitwise_and(contour_img2, contour_img2, mask=mask2)
 
         
     cv2.destroyAllWindows()
-    return cut_img
+    return grab_cut_img

@@ -28,7 +28,7 @@ def check_angle(a,b):
     else:
         return False
 
-def check_image_angle(path):
+def check_image_angle(img):
     global img_angle1
     global img_angle2
     global img_angle3
@@ -42,7 +42,7 @@ def check_image_angle(path):
     BG_COLOR = (192, 192, 192) # gray
     with mp_pose.Pose(static_image_mode=True,model_complexity=2,enable_segmentation=True,min_detection_confidence=0.5) as pose:
         
-        image = cv2.imread(path)
+        image = img
         image_height, image_width, _ = image.shape
         results = pose.process(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
         condition = np.stack((results.segmentation_mask,) * 3, axis=-1) > 0.1
@@ -102,13 +102,15 @@ def check_landmark(check_img):
         except:
             pass
         
-        coordinates=[tuple(np.multiply(RIGHT_shoulder, [640, 480]).astype(int)),
-                     tuple(np.multiply(RIGHT_hip, [640, 480]).astype(int)),
-                     tuple(np.multiply(RIGHT_ankle, [640, 480]).astype(int)),
+        coordinates=[tuple(np.multiply(RIGHT_shoulder, [1920,1080]).astype(int)),
+                     tuple(np.multiply(RIGHT_hip, [1920,1080]).astype(int)),
+                     tuple(np.multiply(RIGHT_ankle, [1920,1080]).astype(int)),
                      
-                     tuple(np.multiply(LEFT_shoulder, [640, 480]).astype(int)),
-                     tuple(np.multiply(LEFT_hip, [640, 480]).astype(int)),
-                     tuple(np.multiply(LEFT_ankle, [640, 480]).astype(int)),
+                     tuple(np.multiply(LEFT_shoulder, [1920,1080]).astype(int)),
+                     tuple(np.multiply(LEFT_hip, [1920,1080]).astype(int)),
+                     tuple(np.multiply(LEFT_ankle, [1920,1080]).astype(int)),
+                     tuple(np.multiply(RIGHT_wrist, [1920,1080]).astype(int)),
+                     tuple(np.multiply(LEFT_wrist, [1920,1080]).astype(int))
                     ]
                     
     return coordinates
@@ -141,13 +143,15 @@ def check_landmark_resize(check_img,fx,fy):
         except:
             pass
         
-        coordinates=[tuple(np.multiply(RIGHT_shoulder, [640*fx, 480*fy]).astype(int)),
-                     tuple(np.multiply(RIGHT_hip, [640*fx, 480*fy]).astype(int)),
-                     tuple(np.multiply(RIGHT_ankle, [640*fx, 480*fy]).astype(int)),
+        coordinates=[tuple(np.multiply(RIGHT_shoulder, [1920*fx,1080*fy]).astype(int)),
+                     tuple(np.multiply(RIGHT_hip, [1920*fx,1080*fy]).astype(int)),
+                     tuple(np.multiply(RIGHT_ankle, [1920*fx,1080*fy]).astype(int)),
                      
-                     tuple(np.multiply(LEFT_shoulder, [640*fx, 480*fy]).astype(int)),
-                     tuple(np.multiply(LEFT_hip, [640*fx, 480*fy]).astype(int)),
-                     tuple(np.multiply(LEFT_ankle, [640*fx, 480*fy]).astype(int)),
+                     tuple(np.multiply(LEFT_shoulder, [1920*fx,1080*fy]).astype(int)),
+                     tuple(np.multiply(LEFT_hip, [1920*fx,1080*fy]).astype(int)),
+                     tuple(np.multiply(LEFT_ankle, [1920*fx,1080*fy]).astype(int)),
+                     tuple(np.multiply(RIGHT_wrist, [1920*fx,1080*fy]).astype(int)),
+                     tuple(np.multiply(LEFT_wrist, [1920*fx,1080*fy]).astype(int))
                     ]
                     
     return coordinates
@@ -155,7 +159,9 @@ def check_landmark_resize(check_img,fx,fy):
 
 
 def video_angle(choice):
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(cv2.CAP_DSHOW+0)
+    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
+    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
     with mp_pose.Pose(min_detection_confidence=0.5,min_tracking_confidence=0.5) as pose:
         while cap.isOpened():
             ret, frame = cap.read()
@@ -196,27 +202,27 @@ def video_angle(choice):
                 #상체
                 #왼팔꿈치
                 if(check_angle(img_angle1,video_angle1)):
-                    cv2.putText(image,str(video_angle1),tuple(np.multiply(LEFT_elbow, [640, 480]).astype(int)),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 2, cv2.LINE_AA)
+                    cv2.putText(image,str(video_angle1),tuple(np.multiply(LEFT_elbow, [1920,1080]).astype(int)),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 2, cv2.LINE_AA)
                 else:
-                    cv2.putText(image,str(video_angle1),tuple(np.multiply(LEFT_elbow, [640, 480]).astype(int)),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 2, cv2.LINE_AA)
+                    cv2.putText(image,str(video_angle1),tuple(np.multiply(LEFT_elbow, [1920,1080]).astype(int)),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 2, cv2.LINE_AA)
 
                 #왼어깨
                 if(check_angle(img_angle2,video_angle2)):
-                    cv2.putText(image,str(video_angle2),tuple(np.multiply(LEFT_shoulder, [640, 480]).astype(int)),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 2, cv2.LINE_AA)
+                    cv2.putText(image,str(video_angle2),tuple(np.multiply(LEFT_shoulder, [1920,1080]).astype(int)),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 2, cv2.LINE_AA)
                 else:
-                    cv2.putText(image,str(video_angle2),tuple(np.multiply(LEFT_shoulder, [640, 480]).astype(int)),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 2, cv2.LINE_AA)
+                    cv2.putText(image,str(video_angle2),tuple(np.multiply(LEFT_shoulder, [1920,1080]).astype(int)),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 2, cv2.LINE_AA)
 
                 #오른쪽팔꿈치
                 if(check_angle(img_angle5,video_angle5)):
-                    cv2.putText(image,str(video_angle5),tuple(np.multiply(RIGHT_elbow, [640, 480]).astype(int)),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 2, cv2.LINE_AA)
+                    cv2.putText(image,str(video_angle5),tuple(np.multiply(RIGHT_elbow, [1920,1080]).astype(int)),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 2, cv2.LINE_AA)
                 else:
-                    cv2.putText(image,str(video_angle5),tuple(np.multiply(RIGHT_elbow, [640, 480]).astype(int)),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 2, cv2.LINE_AA)
+                    cv2.putText(image,str(video_angle5),tuple(np.multiply(RIGHT_elbow, [1920,1080]).astype(int)),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 2, cv2.LINE_AA)
 
                 #오른쪽어깨
                 if(check_angle(img_angle6,video_angle6)):
-                    cv2.putText(image,str(video_angle6),tuple(np.multiply(RIGHT_shoulder, [640, 480]).astype(int)),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 2, cv2.LINE_AA)
+                    cv2.putText(image,str(video_angle6),tuple(np.multiply(RIGHT_shoulder, [1920,1080]).astype(int)),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 2, cv2.LINE_AA)
                 else:
-                    cv2.putText(image,str(video_angle6),tuple(np.multiply(RIGHT_shoulder, [640, 480]).astype(int)),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 2, cv2.LINE_AA)    
+                    cv2.putText(image,str(video_angle6),tuple(np.multiply(RIGHT_shoulder, [1920,1080]).astype(int)),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 2, cv2.LINE_AA)    
                     
                     
                     
@@ -225,33 +231,33 @@ def video_angle(choice):
                     
                 #왼허리
                 if(check_angle(img_angle3,video_angle3)):
-                    cv2.putText(image,str(video_angle3),tuple(np.multiply(LEFT_hip, [640, 480]).astype(int)),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 2, cv2.LINE_AA)
+                    cv2.putText(image,str(video_angle3),tuple(np.multiply(LEFT_hip, [1920,1080]).astype(int)),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 2, cv2.LINE_AA)
                 else:
-                    cv2.putText(image,str(video_angle3),tuple(np.multiply(LEFT_hip, [640, 480]).astype(int)),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 2, cv2.LINE_AA)
+                    cv2.putText(image,str(video_angle3),tuple(np.multiply(LEFT_hip, [1920,1080]).astype(int)),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 2, cv2.LINE_AA)
                 #왼무릎
                 if(check_angle(img_angle4,video_angle4)):
-                    cv2.putText(image,str(video_angle4),tuple(np.multiply(LEFT_knee, [640, 480]).astype(int)),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 2, cv2.LINE_AA)
+                    cv2.putText(image,str(video_angle4),tuple(np.multiply(LEFT_knee, [1920,1080]).astype(int)),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 2, cv2.LINE_AA)
                 else:
-                    cv2.putText(image,str(video_angle4),tuple(np.multiply(LEFT_knee, [640, 480]).astype(int)),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 2, cv2.LINE_AA)
+                    cv2.putText(image,str(video_angle4),tuple(np.multiply(LEFT_knee, [1920,1080]).astype(int)),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 2, cv2.LINE_AA)
 
                 #오른쪽허리
                 if(check_angle(img_angle7,video_angle7)):
-                    cv2.putText(image,str(video_angle7),tuple(np.multiply(RIGHT_hip, [640, 480]).astype(int)),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 2, cv2.LINE_AA)
+                    cv2.putText(image,str(video_angle7),tuple(np.multiply(RIGHT_hip, [1920,1080]).astype(int)),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 2, cv2.LINE_AA)
                 else:
-                    cv2.putText(image,str(video_angle7),tuple(np.multiply(RIGHT_hip, [640, 480]).astype(int)),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 2, cv2.LINE_AA)
+                    cv2.putText(image,str(video_angle7),tuple(np.multiply(RIGHT_hip, [1920,1080]).astype(int)),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 2, cv2.LINE_AA)
 
                 #오른쪽무릎
                 if(check_angle(img_angle8,video_angle8)):
-                    cv2.putText(image,str(video_angle8),tuple(np.multiply(RIGHT_knee, [640, 480]).astype(int)),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 2, cv2.LINE_AA)
+                    cv2.putText(image,str(video_angle8),tuple(np.multiply(RIGHT_knee, [1920,1080]).astype(int)),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 2, cv2.LINE_AA)
                 else:
-                    cv2.putText(image,str(video_angle7),tuple(np.multiply(RIGHT_hip, [640, 480]).astype(int)),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 2, cv2.LINE_AA)
+                    cv2.putText(image,str(video_angle7),tuple(np.multiply(RIGHT_hip, [1920,1080]).astype(int)),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 2, cv2.LINE_AA)
                 #동작일치시 캡쳐후 종료
-                if choice=='top':
+                if choice:
                     if(all([check_angle(img_angle1,video_angle1),check_angle(img_angle2,video_angle2),check_angle(img_angle5,video_angle5),check_angle(img_angle6,video_angle6)])):
                         capture_img=frame
                         break
                 
-                elif choice == 'bottom':
+                else:
                     if(all([check_angle(img_angle3,video_angle3),check_angle(img_angle4,video_angle4),check_angle(img_angle7,video_angle7),check_angle(img_angle8,video_angle8)])):
                         capture_img=frame
                         break
