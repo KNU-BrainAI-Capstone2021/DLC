@@ -1,0 +1,31 @@
+01 dress
+02 skirt
+03 hoody
+04 knit
+05 long sleeve
+06 shirts
+07 short sleeve
+08 sweat shirts
+09 boots
+10 dress shoes
+11 running shoes
+12 sandal
+13 slip on
+14 sneakers
+15 blazer
+16 blouson
+17 cardigan
+18 coat
+19 field jumper
+20 fleece
+21 leather jacket
+22 mustang
+23 padding
+24 trucker jacket
+25 vest
+26 jean
+27 shorts
+28 sweat pants
+29 trouser
+30 wide jean
+31 wide trouser
