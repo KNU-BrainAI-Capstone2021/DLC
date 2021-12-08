@@ -23,7 +23,7 @@ def calculate_angle(a,b,c):
 
 #각도확인
 def check_angle(a,b):
-    if a-2<b and a+2>b:
+    if a-1<b and a+1>b:
         return True
     else:
         return False

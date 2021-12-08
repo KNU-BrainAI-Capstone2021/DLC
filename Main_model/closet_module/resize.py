@@ -46,7 +46,7 @@ class resize:
 
         return resize_grab_cut_img
 
-    def cut(self):
+    def cut(self,var):
         ratio = self.cal_ratio()
         img=self.resize()
 
@@ -61,12 +61,12 @@ class resize:
             x=c_land[6][0]-50
             y=c_land[0][1]-80
             w=c_land[7][0]+50
-            h=c_land[4][1]+10
+            h=int(var*ratio[1])
         else:
             x=c_land[2][0]-50
             y=c_land[1][1]-80
-            h=c_land[5][1]+10
             w=c_land[5][0]+50
+            h=img.shape[0]
         #이미지 cut
         
         src = img

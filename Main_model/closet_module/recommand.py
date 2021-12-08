@@ -9,7 +9,7 @@ def recommend_outer(cloth):
         for i in range(0,len(colors)):
             keys.append(colors[i]+" "+keywords[j])
     sumsave=[]
-    data = pd.read_csv('C:\\Users\\lky\\Desktop\\class_clothes.txt',sep='\n', header=None)[0].str.split('\t', expand=True)
+    data = pd.read_csv('class_clothes.txt',sep='\n', header=None)[0].str.split('\t', expand=True)
 
     path='C:\\Users\\lky\\DeepLearning\\smart_closet\\img_lib\\cut_img\\'
     path_list=[path+'blazer',path+'cardigan',path+'vest',path+'coat',path+'field jumper',path+'fleece',path+'leather jacket',path+'mustang',path+'padding',path+'trucker']
@@ -18,6 +18,7 @@ def recommend_outer(cloth):
         list_num=os.listdir(path_list[i])
         for j in range(len(list_num)):
             file_list.append(list_num[j].replace('.png',''))
+            file_list.append(list_num[j].replace('.jpg',''))
     print(file_list)
     my_clothes =file_list
     my_clothesf = my_clothes.copy()
@@ -111,6 +112,7 @@ def recommend_top(cloth):
         list_num=os.listdir(path_list[i])
         for j in range(len(list_num)):
             file_list.append(list_num[j].replace('.png',''))
+            file_list.append(list_num[j].replace('.jpg',''))
     print(file_list)
     my_clothes =file_list
     my_clothesf = my_clothes.copy()
@@ -205,6 +207,7 @@ def recommend_bottom(cloth):
         list_num=os.listdir(path_list[i])
         for j in range(len(list_num)):
             file_list.append(list_num[j].replace('.png',''))
+            file_list.append(list_num[j].replace('.jpg',''))
     print(file_list)
     my_clothes =file_list
     my_clothesf = my_clothes.copy()
@@ -299,6 +302,7 @@ def recommend_shoes(cloth):
         list_num=os.listdir(path_list[i])
         for j in range(len(list_num)):
             file_list.append(list_num[j].replace('.png',''))
+            file_list.append(list_num[j].replace('.jpg',''))
     my_clothes =file_list
     my_clothesf = my_clothes.copy()
     for i in range(0,len(my_clothes)):
