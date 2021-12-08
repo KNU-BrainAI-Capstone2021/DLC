@@ -9,7 +9,9 @@ def cap():
     global picture
     i=1
     save_path='C:\\Users\\lky\\DeepLearning\\smart_closet\\img_lib\Avatar\\'
-    cap = cv2.VideoCapture(cv2.CAP_DSHOW+0)
+    cap = cv2.VideoCapture(cv2.CAP_DSHOW+1)
+    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
+    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
     while running:
         ret, frame = cap.read()
         cv2.imshow('Avatar_cap', frame)

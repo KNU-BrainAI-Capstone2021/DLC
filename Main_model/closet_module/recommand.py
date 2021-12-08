@@ -12,12 +12,12 @@ def recommend_outer(cloth):
     data = pd.read_csv('C:\\Users\\lky\\Desktop\\class_clothes.txt',sep='\n', header=None)[0].str.split('\t', expand=True)
 
     path='C:\\Users\\lky\\DeepLearning\\smart_closet\\img_lib\\cut_img\\'
-    path_list=[path+'short sleeve outwear',path+'long sleeve outwear',path+'vest']
+    path_list=[path+'blazer',path+'cardigan',path+'vest',path+'coat',path+'field jumper',path+'fleece',path+'leather jacket',path+'mustang',path+'padding',path+'trucker']
     file_list=[]
     for i in range(len(path_list)):
         list_num=os.listdir(path_list[i])
         for j in range(len(list_num)):
-            file_list.append(list_num[j].strip('.png'))
+            file_list.append(list_num[j].replace('.png',''))
     print(file_list)
     my_clothes =file_list
     my_clothesf = my_clothes.copy()
@@ -105,12 +105,12 @@ def recommend_top(cloth):
     sumsave=[]
     data = pd.read_csv('C:\\Users\\lky\\Desktop\\class_clothes.txt',sep='\n', header=None)[0].str.split('\t', expand=True)
     path='C:\\Users\\lky\\DeepLearning\\smart_closet\\img_lib\\cut_img\\'
-    path_list=[path+'short sleeve top',path+'long sleeve top']
+    path_list=[path+'dress',path+'hoody',path+'knit',path+'long sleeve',path+'shirts',path+'short sleeve',path+'sweat shirts',path+'blouson']
     file_list=[]
     for i in range(len(path_list)):
         list_num=os.listdir(path_list[i])
         for j in range(len(list_num)):
-            file_list.append(list_num[j].strip('.png'))
+            file_list.append(list_num[j].replace('.png',''))
     print(file_list)
     my_clothes =file_list
     my_clothesf = my_clothes.copy()
@@ -199,13 +199,12 @@ def recommend_bottom(cloth):
     data = pd.read_csv('C:\\Users\\lky\\Desktop\\class_clothes.txt',sep='\n', header=None)[0].str.split('\t', expand=True)
 
     path='C:\\Users\\lky\\DeepLearning\\smart_closet\\img_lib\\cut_img\\'
-    path_list=[path+'trouser']
+    path_list=[path+'jean',path+'shorts',path+'sweat pants',path+'trouser',path+'wide jean',path+'wide trouser']
     file_list=[]
     for i in range(len(path_list)):
         list_num=os.listdir(path_list[i])
         for j in range(len(list_num)):
-            file_list.append(list_num[j])
-            
+            file_list.append(list_num[j].replace('.png',''))
     print(file_list)
     my_clothes =file_list
     my_clothesf = my_clothes.copy()
@@ -294,13 +293,12 @@ def recommend_shoes(cloth):
     data = pd.read_csv('C:\\Users\\lky\\Desktop\\class_clothes.txt',sep='\n', header=None)[0].str.split('\t', expand=True)
 
     path='C:\\Users\\lky\\DeepLearning\\smart_closet\\img_lib\\cut_img\\'
-    path_list=[path+'short sleeve outwear',path+'long sleeve outwear',path+'vest']
+    path_list=[path+'boots',path+'dress shoes',path+'running shoes',path+'sandal',path+'slip on',path+'sneakers']
     file_list=[]
     for i in range(len(path_list)):
         list_num=os.listdir(path_list[i])
         for j in range(len(list_num)):
-            file_list.append(list_num[j].strip('.png'))
-    print(file_list)
+            file_list.append(list_num[j].replace('.png',''))
     my_clothes =file_list
     my_clothesf = my_clothes.copy()
     for i in range(0,len(my_clothes)):
@@ -376,3 +374,52 @@ def recommend_shoes(cloth):
         print('추천할 의상이 없습니다')
     else :
         return answer# <-------------- 의상 추천, 이 결과값을 토대로 실제로 입은것처럼 구현
+    
+    
+def find_outer_path(outer):
+    var=[]
+    path='C:\\Users\\lky\\DeepLearning\\smart_closet\\img_lib\\cut_img\\'
+    path_list=[path+'blazer',path+'cardigan',path+'vest',path+'coat',path+'field jumper',path+'fleece',path+'leather jacket',path+'mustang',path+'padding',path+'trucker']
+    for j in range(len(outer)):
+        for a in range(len(path_list)):
+            list_num=os.listdir(path_list[a])
+            for i in range(len(list_num)):
+                if outer[j] in list_num[i]:
+                    var.append(path_list[a]+'\\'+list_num[i])
+    return var
+
+def find_top_path(top):
+    var=[]
+    path='C:\\Users\\lky\\DeepLearning\\smart_closet\\img_lib\\cut_img\\'
+    path_list=[path+'dress',path+'hoody',path+'knit',path+'long sleeve',path+'shirts',path+'short sleeve',path+'sweat shirts',path+'blouson']
+    for j in range(len(top)):
+        for a in range(len(path_list)):
+            list_num=os.listdir(path_list[a])
+            for i in range(len(list_num)):
+                if top[j] in list_num[i]:
+                    var.append(path_list[a]+'\\'+list_num[i])
+    return var
+
+def find_bottom_path(bottom):
+    var=[]
+    path='C:\\Users\\lky\\DeepLearning\\smart_closet\\img_lib\\cut_img\\'
+    path_list=[path+'jean',path+'shorts',path+'sweat pants',path+'trouser',path+'wide jean',path+'wide trouser']
+    for j in range(len(bottom)):
+        for a in range(len(path_list)):
+            list_num=os.listdir(path_list[a])
+            for i in range(len(list_num)):
+                if bottom[j] in list_num[i]:
+                    var.append(path_list[a]+'\\'+list_num[i])
+    return var
+
+def find_shoes_path(shoes):
+    var=[]
+    path='C:\\Users\\lky\\DeepLearning\\smart_closet\\img_lib\\cut_img\\'
+    path_list=[path+'boots',path+'dress shoes',path+'running shoes',path+'sandal',path+'slip on',path+'sneakers']
+    for j in range(len(shoes)):
+        for a in range(len(path_list)):
+            list_num=os.listdir(path_list[a])
+            for i in range(len(list_num)):
+                if shoes[j] in list_num[i]:
+                    var.append(path_list[a]+'\\'+list_num[i])
+    return var
