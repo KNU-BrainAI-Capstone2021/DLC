@@ -1,0 +1,6 @@
+classes= 31
+train  = data/list/train.txt
+valid  = data/list/valid.txt
+test  = data/list/test.txt
+names = data/clothesdef.names
+backup = /content/drive/MyDrive/YOLOv4/backup
